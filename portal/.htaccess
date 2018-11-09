@@ -1,0 +1,21 @@
+#Header add Access-Control-Allow-Origin "*" 
+#Header add Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+AddDefaultCharset utf-8
+
+RewriteEngine on
+
+options +Followsymlinks
+
+Rewriterule ^localito$ home
+
+RewriteCond %{REQUEST_URI} !\.(png|jpg|gif|jpeg|bmp|css|js|less|coffee)$ [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L] 
+
+
+
+ErrorDocument 404 /404.php
