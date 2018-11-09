@@ -42,7 +42,7 @@ class Empresas extends CI_Controller {
 	    }		
 	    else
 	    {
-	    	header('Location: /admin/login');
+	    	header('Location: /admin/login'); 
 	    }
 
 		//$this->load->view("home", $datos);
