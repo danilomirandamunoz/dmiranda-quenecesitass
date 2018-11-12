@@ -111,10 +111,15 @@ class Empresa_model extends CI_model
 	            </div>
 	            </a>
 	            ";
-	    $htmlAux = "";
-		for ($i = 0; $i < count($obj["direcciones"]); $i++) {
-		    $htmlAux .= '<p class="product-location"><i class="fa fa-map-marker"></i> '.$obj["direcciones"][$i]["calle"].' #'.$obj["direcciones"][$i]["numero"].', '.$obj["direcciones"][$i]["comuna_nombre"].', '.$obj["direcciones"][$i]["region_nombre"].'</p>';
+		$htmlAux = "";
+		
+		if($obj["direcciones"] != null)
+		{
+			for ($i = 0; $i < count($obj["direcciones"]); $i++) {
+				$htmlAux .= '<p class="product-location"><i class="fa fa-map-marker"></i> '.$obj["direcciones"][$i]["calle"].' #'.$obj["direcciones"][$i]["numero"].', '.$obj["direcciones"][$i]["comuna_nombre"].', '.$obj["direcciones"][$i]["region_nombre"].'</p>';
+			}
 		}
+		
 
 	    $html = str_replace("@Direcciones", $htmlAux, $html);
 	    return $html;
