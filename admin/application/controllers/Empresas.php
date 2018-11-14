@@ -51,6 +51,12 @@ class Empresas extends CI_Controller {
     
     public function Detalle($idempresa = NULL)
     {
+        if(!$this->session->userdata('logueado'))
+		{
+            header('Location: /admin/login'); 
+            return;
+        }
+
         $this->load->model("Menu_model");
         $this->load->model("Categoria_model");
         $this->load->model("Empresa_model");
@@ -110,6 +116,12 @@ class Empresas extends CI_Controller {
 
     public function GuardarInfoBasica()
     {
+
+        if(!$this->session->userdata('logueado'))
+		{
+            header('Location: /admin/login'); 
+            return;
+        }
         // try 
         // {
             $this->load->helper("funciones_generales_helper");
@@ -200,6 +212,12 @@ class Empresas extends CI_Controller {
 
     public function GuardarDireccion()
     {
+
+        if(!$this->session->userdata('logueado'))
+		{
+            header('Location: /admin/login'); 
+            return;
+        }
         $this->load->helper("funciones_generales_helper");
         $this->load->model("EmpresaDireccion_model");
         $idEmpresa = DesencriptarParametroURL($this->input->post('idEmpresa'));
@@ -360,6 +378,12 @@ class Empresas extends CI_Controller {
 
     public function GuardarTag()
     {
+
+        if(!$this->session->userdata('logueado'))
+		{
+            header('Location: /admin/login'); 
+            return;
+        }
         $this->load->helper("funciones_generales_helper");
         $this->load->model("Tag_model");
         $idEmpresa = DesencriptarParametroURL($this->input->post('idEmpresa'));
@@ -400,6 +424,11 @@ class Empresas extends CI_Controller {
 
     public function GuardarImagen()
     {
+        if(!$this->session->userdata('logueado'))
+		{
+            header('Location: /admin/login'); 
+            return;
+        }
         $this->load->helper("funciones_generales_helper");
         $this->load->model("EmpresaImagen_model");
 
@@ -516,6 +545,11 @@ class Empresas extends CI_Controller {
 
     public function GuardarProducto()
     {
+        if(!$this->session->userdata('logueado'))
+		{
+            header('Location: /admin/login'); 
+            return;
+        }
         $this->load->helper("funciones_generales_helper");
         $this->load->model("EmpresaProducto_model");
 

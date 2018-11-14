@@ -12,6 +12,15 @@
 <head>
 <?php $this->load->view('head');?>
 
+<style>
+.table tbody tr td {
+            word-break: break-word;
+            vertical-align: top;
+        }
+        .table-scrollable > .table > tbody > tr > td{
+            white-space:normal!important;
+        }
+</style>
 
 </head>
 <!-- END HEAD -->
@@ -68,12 +77,6 @@
                                                 Nombre
                                             </th>
                                             <th>
-                                                Url Facebook
-                                            </th>
-                                            <th class="hidden-tablet hidden-phone">
-                                                Url Twitter
-                                            </th>
-                                            <th class="hidden-tablet hidden-phone">
                                                 Vigente
                                             </th>
                                             <th>
@@ -89,10 +92,6 @@
                                         ?>
                                         <tr class="odd gradeX">
                                             <td><?php echo $row['nombre'];?>
-                                            </td>
-                                            <td class="center"><?php echo $row['url_facebook']; ?>
-                                            </td>
-                                            <td class="center"><?php echo $row['url_twitter']; ?>
                                             </td>
                                             <td class="center"><?php echo $row['vigente'] == 1 ? "Activo" : "Inactivo"; ?>
                                             </td>
