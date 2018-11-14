@@ -173,7 +173,7 @@ if(!isset($empresa['id_empresa']))
                                     }
                                     else
                                     {
-                                        echo "<div class='row'>>No Posee.</div>";
+                                        echo "<div class='col-md-4'>No Posee.</div>";
                                         }
                                     
 
